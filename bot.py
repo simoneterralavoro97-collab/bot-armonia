@@ -5,8 +5,10 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes, MessageHandler, filters
 
 # === CONFIG ===
-TOKEN = "8330563514:AAEQ0MqyizMjoPtH0cFgC-gyMOOURGiRDVo"  # Inserisci il tuo token
-ADMIN_ID = 234535212  # Inserisci il tuo ID Telegram
+import os
+
+TOKEN = os.environ.get("TOKEN")
+ADMIN_ID = int(os.environ.get("ADMIN_ID"))
 CATALOG_FILE = "catalog.json"
 ORDERS_FILE = "orders.json"
 
@@ -352,4 +354,5 @@ def main():
     app.run_polling()
 
 if __name__ == "__main__":
+
     main()
